@@ -1,0 +1,15 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $color-background;
+	transition: all 1s;
+	
+}
+
+.wrap {
+	width: 100%;
+	max-width: $dim-max-width;
+	margin: 0 auto;
+}

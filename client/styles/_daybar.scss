@@ -1,0 +1,10 @@
+.day-bar{
+	background-color: $color-primary;
+	height: 9px;
+	transition: all .3s ease-out;
+
+	&.expanded {
+		margin: 20px 0;
+		border-radius: 10px;
+	}
+}
