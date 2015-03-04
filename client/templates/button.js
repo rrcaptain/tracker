@@ -10,7 +10,7 @@ Template.button.created = function(){
 		window.clearInterval(this.trackInterval);
 
 		var trackTime = Session.get('trackTime');
-		var today = this.getUnixTime(this.getCurrentDay());
+		var today = tracker.getUnixTime(tracker.getCurrentDay());
 
 		var existingDay = Days.findOne({day: today});
 
@@ -34,19 +34,6 @@ Template.button.created = function(){
 	this.updateTime = function(){
 		var currTime = Math.floor(Date.now() / 1000);
 		Session.set('trackTime', currTime - Session.get('startTime'));
-	};
-
-	this.getCurrentDay = function(){
-		var now = new Date();
-		var today = new Date('');
-		today.setFullYear(now.getFullYear());
-		today.setMonth(now.getMonth());
-		today.setDate(now.getDate()); 
-		return today;
-	};
-
-	this.getUnixTime = function(date) { 
-		return date.getTime()/1000|0 
 	};
 }
 

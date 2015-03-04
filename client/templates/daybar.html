@@ -1,5 +1,8 @@
 <template name="daybar">
 	<div class="day-bar {{#if isExpanded}}expanded{{/if}} {{position}}" >
-		{{time}}
+		<div class="progress">
+			<div class="progress-bar" style="width: {{progress}}%"></div>
+		</div>
+		<span class="day-time">{{time}}</span>
 	</div>
 </template>

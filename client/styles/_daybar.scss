@@ -1,23 +1,46 @@
 .day-bar{
-	background-color: $color-primary;
-	height: 9px;
-	transition: all .3s ease-out;
+	position: relative;
+	padding-right: 0px;
+	transition: all $expandTime ease-out;
 
-	&.expanded {
-		margin: 20px 0;
-		border-radius: 5px;
+	.day-time {
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		color: white;
+		transition: opacity $expandTime ease-out;
 	}
 
-	&.top {
+	.progress {
+		background-color: $color-primary;
+		height: 9px;
+		transition: border-radius $expandTime ease-out;
+	}
+
+	.progress-bar {
+		background-color: red;
+		height: 9px;
+	}
+
+	&.top .progress {
 		border-radius: 5px 5px 0 0;
 	}
 
-	&.bottom {
+	&.bottom .progress {
 		border-radius: 0 0 5px 5px;
 	}
 
-	&.expanded.top,
-	&.expanded.bottom {
-		border-radius: 5px;
+	&.expanded {
+		padding-right: 50px;
+		margin: 20px 0;
+
+		.day-time {
+			opacity: 1;
+		}
+
+		.progress {
+			border-radius: 5px;
+		}
 	}
 }
