@@ -1,0 +1,22 @@
+.week-bar {
+	position: relative;
+
+	.week-time {
+		opacity: 1;
+		color: $color-background;
+		position: absolute;
+		top: 0;
+		left: 20px;
+		line-height: 9px * 5;
+		font-size: 20px;
+		font-weight: bold;
+		transition: all $expandTime ease-out;
+	}
+
+	&.expanded{
+		.week-time {
+			opacity: 0;
+			transform: translateX(-50px);
+		}
+	}
+}

@@ -1,7 +1,8 @@
 <template name="weekbar">
 	<div class="week-bar {{#if isExpanded}}expanded{{/if}}">
 		{{#each weekDays}}
-			{{> daybar time=this.time isExpanded=isExpanded position=this.position}}			
+			{{> daybar time=this.time isExpanded=isExpanded position=this.position overTime=this.overTime maxTime=this.maxTime}}			
 		{{/each}}
+		<span class="week-time">{{formatTime weekTime}}</span>
 	</div>
 </template>

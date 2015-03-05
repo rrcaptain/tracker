@@ -1,4 +1,4 @@
  Days = new Mongo.Collection("days"); 
  weekDays = 5;
- maxDayTime = 36000; //10 hours
- overTime = 7200; //2 hours
+ maxDayTime = 1000; //10 hours
+ maxOverTime = 200; //2 hours

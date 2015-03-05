@@ -1,14 +1,29 @@
 WeekDays = new Mongo.Collection(null); 
 
+Template.weekbar.created = function(){
+	this.isExpanded = new Blaze.ReactiveVar();
+	this.isExpanded.set('false');
+};
+
 Template.weekbar.events({
-	'click .week-bar': function(){
-		Session.set('isExpanded', !Session.get('isExpanded'));
+	'click .week-bar': function(event, template){
+		template.isExpanded.set(!template.isExpanded.get());
 	}
 });
 
 Template.weekbar.helpers({
 	'isExpanded': function(){
-		return Session.get('isExpanded');
+		return Template.instance().isExpanded.get('isExpanded');
+	},
+
+	'weekTime': function(){
+		var weekTime = 0;
+
+		WeekDays.find().fetch().forEach(function(day){
+			weekTime += day.time;
+		})
+
+		return weekTime;
 	},
 
 	'weekDays': function(){
@@ -35,15 +50,24 @@ Template.weekbar.helpers({
 				position = 'bottom';
 			}
 
+			var maxTime = maxDayTime;
+			var overTime = maxOverTime;
+
 			WeekDays.insert({
 				day: startTime,
 				time: trackTime,
+				maxTime: maxTime,
+				overTime: overTime,
 				position: position
 			})
 			start.add(1, 'days');
 		}
 
 		return WeekDays.find();
+	},
+
+	'formatTime': function(seconds){
+		return tracker.formatTime(seconds);
 	}
 });
 

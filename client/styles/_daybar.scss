@@ -9,10 +9,12 @@
 		right: 0;
 		top: 0;
 		color: white;
-		transition: opacity $expandTime ease-out;
+		transition: all $expandTime ease-out;
+		transform: translateX(50px);
 	}
 
 	.progress {
+		position: relative;
 		background-color: $color-primary;
 		height: 9px;
 		transition: border-radius $expandTime ease-out;
@@ -21,13 +23,25 @@
 	.progress-bar {
 		background-color: red;
 		height: 9px;
+		transition: width $expandTime ease-out;
+
+	}
+
+	.over-time {
+		background-color: blue;
+		height: 9px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: width $expandTime ease-out;
+		opacity: .3;
 	}
 
 	&.top .progress {
 		border-radius: 5px 5px 0 0;
 	}
 
-	&.bottom .progress {
+	&.bottom .progress { 
 		border-radius: 0 0 5px 5px;
 	}
 
@@ -37,6 +51,7 @@
 
 		.day-time {
 			opacity: 1;
+			transform: translateX(0);
 		}
 
 		.progress {

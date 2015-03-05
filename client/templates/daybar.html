@@ -2,7 +2,8 @@
 	<div class="day-bar {{#if isExpanded}}expanded{{/if}} {{position}}" >
 		<div class="progress">
 			<div class="progress-bar" style="width: {{progress}}%"></div>
+			<div class="over-time" style="width: {{overTime}}%"></div>
 		</div>
-		<span class="day-time">{{time}}</span>
+		<span class="day-time">{{formatTime time}}</span>
 	</div>
 </template>
